@@ -210,7 +210,7 @@ function Hero() {
             Est. 1971 · Benin City, Edo State · 750 Acres
           </div>
           
-          <h1 className="font-display text-5xl sm:text-7xl lg:text-[5.5rem] font-black leading-[0.92] text-foreground tracking-tight">
+          <h1 className="font-display text-4xl xs:text-5xl sm:text-7xl lg:text-[5.5rem] font-black leading-[0.92] text-foreground tracking-tight">
             Where the Wild <br />
             Meets the <em className="not-italic text-gradient-green">Ancient City.</em>
           </h1>
@@ -219,16 +219,16 @@ function Hero() {
             Nigeria's premier eco-reserve — 750 acres of ancient hardwoods, living wildlife, adrenaline adventure parks, and luxury event pavilions in the heart of Benin City.
           </p>
 
-          <div className="mt-8 flex flex-wrap items-center gap-4">
+          <div className="mt-8 flex flex-col xs:flex-row items-stretch xs:items-center gap-3">
             <a 
               href="#tickets" 
-              className="inline-flex items-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white hover:bg-primary/95 hover:scale-[1.02] hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-lg shadow-primary/25 neon-glow"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-4 text-sm font-bold text-white hover:bg-primary/95 hover:scale-[1.02] hover:-translate-y-0.5 active:translate-y-0 transition-all shadow-lg shadow-primary/25 neon-glow w-full xs:w-auto text-center"
             >
               Reserve Entry Ticket <ArrowRight className="h-4 w-4" />
             </a>
             <a 
               href="#animals" 
-              className="inline-flex items-center gap-2 rounded-full bg-white/90 border border-border backdrop-blur-sm px-8 py-4 text-sm font-bold text-foreground hover:bg-white hover:border-foreground/30 hover:scale-[1.02] hover:-translate-y-0.5 transition-all shadow-sm"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white/90 border border-border backdrop-blur-sm px-8 py-4 text-sm font-bold text-foreground hover:bg-white hover:border-foreground/30 hover:scale-[1.02] hover:-translate-y-0.5 transition-all shadow-sm w-full xs:w-auto text-center"
             >
               View Our Animals
             </a>
@@ -254,7 +254,7 @@ function HeroStat({ icon, label, value, detail }: { icon: React.ReactNode; label
         <div className="p-1.5 sm:p-2 rounded-xl bg-primary/10 group-hover:bg-primary group-hover:text-white transition duration-300 shrink-0">{icon}</div>
         <span className="text-[8px] sm:text-[9px] uppercase tracking-widest text-muted-foreground font-bold">{label}</span>
       </div>
-      <div className="font-display font-black text-base sm:text-xl text-foreground">{value}</div>
+      <div className="font-display font-black text-xs xs:text-sm sm:text-base md:text-xl text-foreground truncate">{value}</div>
       <div className="text-[9px] sm:text-[10px] text-muted-foreground mt-0.5 sm:mt-1 leading-snug">{detail}</div>
     </div>
   );
@@ -360,14 +360,20 @@ function AboutBanner() {
 
             <div>
               <div className="text-[10px] uppercase tracking-[0.25em] text-primary font-bold mb-4">Visit Us For</div>
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3">
                 {visits.map((v) => (
                   <div 
                     key={v.label} 
-                    className="flex items-center gap-2.5 bg-white border border-border/60 rounded-xl px-4 py-3 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-md transition duration-300 group"
+                    className="flex items-start gap-2 sm:gap-3 bg-white border border-border/50 rounded-2xl p-2.5 sm:p-3.5 hover:border-primary/40 hover:-translate-y-0.5 hover:shadow-md transition duration-300 group min-h-[60px] sm:min-h-[64px]"
                   >
-                    <div className="text-primary group-hover:scale-110 transition shrink-0 bg-primary/5 p-1.5 rounded-lg group-hover:bg-primary group-hover:text-white">{v.icon}</div>
-                    <span className="text-xs font-semibold text-muted-foreground group-hover:text-foreground transition">{v.label}</span>
+                    <div className="text-primary shrink-0 bg-primary/5 p-1.5 sm:p-2 rounded-xl group-hover:bg-primary group-hover:text-white transition duration-300">
+                      {v.icon}
+                    </div>
+                    <div className="flex-1 min-w-0 self-center">
+                      <span className="text-[10px] sm:text-xs font-bold text-muted-foreground group-hover:text-foreground transition leading-tight block">
+                        {v.label}
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -746,7 +752,7 @@ function VirtualTour() {
 
         <div className="grid lg:grid-cols-[1fr_1.4fr] gap-8 items-start">
           {/* Stops Selector - horizontal swipe on mobile, vertical list on desktop */}
-          <div className="flex lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 scrollbar-none snap-x snap-mandatory">
+          <div className="flex lg:flex-col gap-3 overflow-x-auto pb-4 lg:pb-0 scrollbar-none snap-x snap-mandatory -mx-4 px-4 lg:mx-0 lg:px-0">
             {TOUR_STOPS.map((stop, idx) => {
               const isActive = selectedStop.id === stop.id;
               return (
@@ -1649,7 +1655,7 @@ function GoogleMapSection() {
               style={{ border: 0 }}
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.8009508009377!2d5.583154714273049!3d6.289873195447613!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1040d18b00abe6c3%3A0x51f26cd3179fcfe0!2sOgba%20Zoo%2C%20Benin%20City.!5e0!3m2!1sen!2sng!4v1619632067280!5m2!1sen!2sng"
               width="100%"
-              height="450"
+              className="h-[280px] sm:h-[450px] w-full"
               allowFullScreen
               title="Ogba Zoo Location Map"
             />
