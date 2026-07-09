@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useMemo, useState, useEffect } from "react";
 import {
   MapPin, Clock, Minus, Plus, Ticket, Users, Sparkles,
@@ -30,7 +30,7 @@ function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary scroll-smooth">
+    <div className="min-h-screen bg-background text-foreground font-sans selection:bg-primary/20 selection:text-primary scroll-smooth overflow-x-hidden">
       <Nav />
       <Hero />
       <AboutBanner />
@@ -321,15 +321,13 @@ function AboutBanner() {
             </div>
 
             <div className="pt-2">
-              <a 
-                href="https://ogbazoo.com.ng/about-ogba-zoo/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+              <Link 
+                to="/about"
                 className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:underline hover:text-primary/80 transition-colors group"
               >
                 Read complete history profile 
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
+              </Link>
             </div>
           </div>
 
